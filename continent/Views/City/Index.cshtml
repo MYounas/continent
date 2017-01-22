@@ -18,7 +18,7 @@
         @foreach (var m in Model)
         {
             <tr>
-                <td>@m.CO_id</td>
+                <td>@m.country.name</td>
                 <td>@m.name</td>
                 <td>@Html.ActionLink("Edit", "Edit", new { Id = m.id })</td>
                 <td>@Html.ActionLink("Delete", "Delete", new { Id = m.id })</td>
