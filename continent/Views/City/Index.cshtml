@@ -1,0 +1,28 @@
+﻿@model IEnumerable<continent.Models.city>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Countries</h2>
+<h2>@Html.ActionLink("Create", "Create")</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <td>Country</td>
+            <td>Name</td>
+            <td colspan="2">Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.CO_id</td>
+                <td>@m.name</td>
+                <td>@Html.ActionLink("Edit", "Edit", new { Id = m.id })</td>
+                <td>@Html.ActionLink("Delete", "Delete", new { Id = m.id })</td>
+            </tr>
+        }
+    </tbody>
+</table>

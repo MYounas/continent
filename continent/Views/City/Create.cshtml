@@ -1,0 +1,13 @@
+﻿@model continent.Models.CountryCityViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create"))
+{
+    @Html.DropDownListFor(m => m.City.CO_id, new SelectList(Model.Countries,"Id","Name"), "Choose Them")
+    @Html.TextBoxFor(m=>m.City.name)
+    <button type="submit">Submit</button>
+}
