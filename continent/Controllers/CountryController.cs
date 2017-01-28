@@ -15,7 +15,22 @@ namespace continent.Controllers
         DbcsContext db = new DbcsContext();
         public ActionResult Index()
         {
-            return View(db.countries.ToList());
+            //return View(db.countries.ToList());
+            return View();
+        }
+
+        public JsonResult getData()
+        {
+            var data=db.countries.ToList();
+            List<countryViewModel> lstData=new List<countryViewModel>();
+            foreach(var d in data){
+                lstData.Add(new countryViewModel{
+                    Id=d.id,
+                    name=d.name
+                });
+            }
+            return Json(new { Result = "OK", Record = lstData }, JsonRequestBehavior.AllowGet);
+
         }
 
         public ActionResult Create()
