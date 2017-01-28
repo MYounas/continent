@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity.Migrations;
+using Newtonsoft.Json;
 
 namespace continent.Controllers
 {
@@ -21,15 +22,28 @@ namespace continent.Controllers
 
         public JsonResult getData()
         {
-            var data=db.countries.ToList();
-            List<countryViewModel> lstData=new List<countryViewModel>();
-            foreach(var d in data){
-                lstData.Add(new countryViewModel{
-                    Id=d.id,
-                    name=d.name
-                });
+
+            try
+            {
+                var data = db.countries.ToList();
+                List<countryViewModel> lstData = new List<countryViewModel>();
+                foreach (var d in data)
+                {
+                    lstData.Add(new countryViewModel
+                    {
+                        id = d.id,
+                        name = d.name
+                    });
+                }
+
+                var jsonData = JsonConvert.SerializeObject(lstData);
+
+                return Json(new { Result = "OK", Records = lstData }, JsonRequestBehavior.AllowGet);
             }
-            return Json(new { Result = "OK", Record = lstData }, JsonRequestBehavior.AllowGet);
+            catch (Exception ex)
+            {
+                return Json(new { Result = "ERROR", Message = ex.Message });
+            }
 
         }
 

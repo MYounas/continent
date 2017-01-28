@@ -20,5 +20,7 @@ namespace continent.Models
         public string name { get; set; }
 
         public virtual ICollection<city> cities { get; set; }
+
+
     }
 }
