@@ -21,7 +21,6 @@ namespace continent.Controllers
 
         public JsonResult getData()
         {
-
             try
             {
                 var data = db.countries.ToList();
@@ -75,11 +74,11 @@ namespace continent.Controllers
                 var data = db.countries.Find(id);
                 db.countries.Remove(data);
                 db.SaveChanges();
-                return Json(new { Result = "OK" });
+                return Json(new { Result = "OK" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
             {
-                return Json(new { Result = "Error",Message=e.Message });
+                return Json(new { Result = "Error", Message = e.Message });
             }
             //return RedirectToAction("Index");
         }

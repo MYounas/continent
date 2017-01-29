@@ -39,6 +39,7 @@
     <script>
         /// <reference path="jtable/jquery.jtable.js" />
         $(function () {
+
             $('#countryTable').jtable({
                 title: 'countries',
 
@@ -49,9 +50,9 @@
                     deleteAction: '/Country/Delete'
                 },
                 fields: {
-                    Id: {
+                    id: {
                         key: true,
-                        list: false
+                        list: true
                     },
                     name: {
                         title: 'Name',
