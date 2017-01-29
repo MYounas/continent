@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity.Migrations;
+using Newtonsoft.Json;
 
 namespace continent.Controllers
 {
@@ -35,6 +36,8 @@ namespace continent.Controllers
                     });
                 }
 
+                var jsonData = JsonConvert.SerializeObject(lstData);
+
                 return Json(new { Result = "OK", Records = lstData }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
@@ -44,44 +47,38 @@ namespace continent.Controllers
 
         }
 
+        public ActionResult Create()
+        {
+            return View();
+        }
 
         [HttpPost]
-        public JsonResult Create(country c)
+        public ActionResult Create(country c)
         {
             db.countries.Add(c);
             db.SaveChanges();
-            return Json(new { Result = "OK", Records = c }, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("Index");
         }
 
-        //public ActionResult Edit(int Id)
-        //{
-        //    return View(db.countries.Single(x => x.id == Id));
-        //}
+        public ActionResult Edit(int Id)
+        {
+            return View(db.countries.Single(x => x.id == Id));
+        }
 
         [HttpPost]
-        public JsonResult Edit(country c)
+        public ActionResult Edit(country c)
         {
             db.countries.AddOrUpdate(c);
             db.SaveChanges();
-            return Json(new { Result = "OK" }, JsonRequestBehavior.AllowGet);
-            //return RedirectToAction("Index");
+            return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public JsonResult Delete(int id)
+        public ActionResult Delete(int Id)
         {
-            try
-            {
-                var data = db.countries.Find(id);
-                db.countries.Remove(data);
-                db.SaveChanges();
-                return Json(new { Result = "OK" });
-            }
-            catch (Exception e)
-            {
-                return Json(new { Result = "Error",Message=e.Message });
-            }
-            //return RedirectToAction("Index");
+            var data = db.countries.Find(Id);
+            db.countries.Remove(data);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
