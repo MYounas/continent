@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity.Migrations;
+using AutoMapper;
 
 namespace continent.Controllers
 {
@@ -25,15 +26,19 @@ namespace continent.Controllers
             {
                 var data = db.countries.ToList();
                 List<countryViewModel> lstData = new List<countryViewModel>();
-                foreach (var d in data)
+                for (int i = 0; i < data.Count; i++)
                 {
-                    lstData.Add(new countryViewModel
-                    {
-                        id = d.id,
-                        name = d.name
-                    });
+                    var Cdata = Mapper.Map<country, countryViewModel>(data.ElementAt(i));
+                    lstData.Add(Cdata);
                 }
-
+                    //foreach (var d in data)
+                    //{
+                    //    lstData.Add(new countryViewModel
+                    //    {
+                    //        id = d.id,
+                    //        name = d.name
+                    //    });
+                    //}
                 return Json(new { Result = "OK", Records = lstData }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
