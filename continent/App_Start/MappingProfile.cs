@@ -13,6 +13,8 @@ namespace continent.App_Start
         {
             Mapper.CreateMap<country, countryViewModel>();
             Mapper.CreateMap<countryViewModel, country>();
+            Mapper.CreateMap<city, cityViewModel>();
+            Mapper.CreateMap<cityViewModel, city>();
         }
     }
 }

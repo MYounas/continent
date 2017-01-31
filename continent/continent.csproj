@@ -197,6 +197,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\area.cs" />
     <Compile Include="Models\city.cs" />
+    <Compile Include="Models\cityViewModel.cs" />
     <Compile Include="Models\country.cs" />
     <Compile Include="Models\CountryCityViewModel.cs" />
     <Compile Include="Models\countryViewModel.cs" />

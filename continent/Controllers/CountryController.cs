@@ -16,7 +16,6 @@ namespace continent.Controllers
         DbcsContext db = new DbcsContext();
         public ActionResult Index()
         {
-            //return View(db.countries.ToList());
             return View();
         }
 
@@ -25,20 +24,15 @@ namespace continent.Controllers
             try
             {
                 var data = db.countries.ToList();
-                List<countryViewModel> lstData = new List<countryViewModel>();
-                for (int i = 0; i < data.Count; i++)
-                {
-                    var Cdata = Mapper.Map<country, countryViewModel>(data.ElementAt(i));
-                    lstData.Add(Cdata);
-                }
-                    //foreach (var d in data)
-                    //{
-                    //    lstData.Add(new countryViewModel
-                    //    {
-                    //        id = d.id,
-                    //        name = d.name
-                    //    });
-                    //}
+                //List<countryViewModel> lstData = new List<countryViewModel>();
+                //for (int i = 0; i < data.Count; i++)
+                //{
+                //    var Cdata = Mapper.Map<country, countryViewModel>(data.ElementAt(i));
+                //    lstData.Add(Cdata);
+                //}
+
+                var lstData = Mapper.Map<IEnumerable<country>, IEnumerable<countryViewModel>>(data);
+
                 return Json(new { Result = "OK", Records = lstData }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
@@ -57,10 +51,6 @@ namespace continent.Controllers
             return Json(new { Result = "OK", Records = c }, JsonRequestBehavior.AllowGet);
         }
 
-        //public ActionResult Edit(int Id)
-        //{
-        //    return View(db.countries.Single(x => x.id == Id));
-        //}
 
         [HttpPost]
         public JsonResult Edit(country c)
@@ -68,7 +58,6 @@ namespace continent.Controllers
             db.countries.AddOrUpdate(c);
             db.SaveChanges();
             return Json(new { Result = "OK" }, JsonRequestBehavior.AllowGet);
-            //return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -85,7 +74,6 @@ namespace continent.Controllers
             {
                 return Json(new { Result = "Error", Message = e.Message });
             }
-            //return RedirectToAction("Index");
         }
     }
 }

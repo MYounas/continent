@@ -1,40 +1,7 @@
-﻿@*@model IEnumerable<continent.Models.country>
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Countries</h2>
-<h2>@Html.ActionLink("Create", "Create")</h2>
-<table border="1">
-    <thead>
-        <tr>
-            <td>Name</td>
-            <td colspan="2">Actions</td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var m in Model)
-        {   
-            <tr>
-                <td>@m.name</td>
-                <td>@Html.ActionLink("Edit", "Edit", new { Id = m.id })</td>
-                <td>@Html.ActionLink("Delete", "Delete",new {Id=m.id})</td>
-            </tr>
-        }
-    </tbody>
-</table>*@
-
+﻿
 <div id="countryTable"></div>
 
 @section scripts{
-
-    <link href="~/Scripts/jtable/themes/metro/blue/jtable.min.css" rel="stylesheet" />
-
-    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
-    @*<link href="http://jtable.org/Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />*@
-
-    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
-    <script src="~/Scripts/jtable/jquery.jtable.js"></script>
 
     <script>
         /// <reference path="jtable/jquery.jtable.js" />

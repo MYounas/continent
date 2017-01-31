@@ -26,3 +26,40 @@
         }
     </tbody>
 </table>
+
+<div id="cityTable"></div>
+
+@section scripts{
+
+    <script>
+        $(function () {
+
+            $('#cityTable').jtable({
+
+                title: 'City Table',
+
+                actions: {
+                    listAction: '/City/getData',
+                    createAction: '/City/Create',
+                    updateAction: '/City/Edit',
+                    deleteAction: '/City/Delete',
+                },
+
+                fields: {
+                    id: {
+                        key: true,
+                        list: false
+                    },
+                    name: {
+                        title: 'Name',
+                        width: '45%'
+                    }
+                }
+
+            });
+            $('#cityTable').jtable('load');
+
+        });
+    </script>
+
+}

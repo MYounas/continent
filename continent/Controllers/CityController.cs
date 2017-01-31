@@ -17,8 +17,15 @@ namespace continent.Controllers
         // GET: City
         public ActionResult Index()
         {
-            return View(db.cities.ToList());
+            //return View(db.cities.ToList());
+            return View();
         }
+
+        //public JsonResult getData()
+        //{
+        //    var data = db.cities.ToList();
+
+        //}
 
         public ActionResult Create()
         {
