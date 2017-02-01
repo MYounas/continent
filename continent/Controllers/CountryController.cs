@@ -24,13 +24,7 @@ namespace continent.Controllers
             try
             {
                 var data = db.countries.ToList();
-                //List<countryViewModel> lstData = new List<countryViewModel>();
-                //for (int i = 0; i < data.Count; i++)
-                //{
-                //    var Cdata = Mapper.Map<country, countryViewModel>(data.ElementAt(i));
-                //    lstData.Add(Cdata);
-                //}
-
+               
                 var lstData = Mapper.Map<IEnumerable<country>, IEnumerable<countryViewModel>>(data);
 
                 return Json(new { Result = "OK", Records = lstData }, JsonRequestBehavior.AllowGet);

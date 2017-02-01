@@ -436,9 +436,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_navbarLayout.cshtml" />
     <Content Include="Views\Country\Index.cshtml" />
-    <Content Include="Views\Country\Create.cshtml" />
-    <Content Include="Views\Country\Edit.cshtml" />
-    <Content Include="Views\Country\Delete.cshtml" />
     <Content Include="Views\City\Index.cshtml" />
     <Content Include="Views\City\Create.cshtml" />
     <Content Include="Views\City\Edit.cshtml" />
