@@ -18,7 +18,6 @@ namespace continent.Controllers
         // GET: City
         public ActionResult Index()
         {
-            //return View(db.cities.ToList());
             return View();
         }
 
@@ -35,40 +34,13 @@ namespace continent.Controllers
             return Json(new { Result = "OK", Options = data });
         }
 
-        //public ActionResult Create()
-        //{
-        //    var CCV = new CountryCityViewModel
-        //    {
-        //        City = new city(),
-        //        Countries = db.countries.ToList()
-        //    };
-        //    return View(CCV);
-        //}
-
-        //[HttpPost]
-        //public ActionResult Create(CountryCityViewModel CCV)
-        //{
-        //    db.cities.Add(CCV.City);
-        //    db.SaveChanges();
-        //    return Json(new { Result = "OK", Records = CCV.City });
-        //    //return RedirectToAction("Index");
-        //}
-
         [HttpPost]
         public ActionResult Create(city city)
         {
             db.cities.Add(city);
             db.SaveChanges();
             return Json(new { Result = "OK", Records = city });
-            //return RedirectToAction("Index");
         }
-
-        //public ActionResult Edit(int Id)
-        //{
-        //    var city = db.cities.Find(Id);
-        //    ViewBag.CO_id = new SelectList(db.countries, "id", "name", city.CO_id);
-        //    return View(city);
-        //}
 
         [HttpPost]
         public ActionResult Edit(city c)
@@ -76,7 +48,6 @@ namespace continent.Controllers
             db.cities.AddOrUpdate(c);
             db.SaveChanges();
             return Json(new { Result = "OK"});
-            //return RedirectToAction("Index");
         }
 
 
@@ -85,8 +56,6 @@ namespace continent.Controllers
             db.cities.Remove(db.cities.Find(Id));
             db.SaveChanges();
             return Json(new { Result = "OK" });
-            //return RedirectToAction("Index");
-
         }
 
     }

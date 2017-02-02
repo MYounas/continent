@@ -196,6 +196,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\area.cs" />
+    <Compile Include="Models\areaViewModel.cs" />
     <Compile Include="Models\city.cs" />
     <Compile Include="Models\cityViewModel.cs" />
     <Compile Include="Models\country.cs" />
@@ -437,11 +438,7 @@
     <Content Include="Views\Shared\_navbarLayout.cshtml" />
     <Content Include="Views\Country\Index.cshtml" />
     <Content Include="Views\City\Index.cshtml" />
-    <Content Include="Views\City\Create.cshtml" />
-    <Content Include="Views\City\Edit.cshtml" />
     <Content Include="Views\Area\Index.cshtml" />
-    <Content Include="Views\Area\Create.cshtml" />
-    <Content Include="Views\Area\Edit.cshtml" />
     <Content Include="Scripts\jtable\themes\metro\red\jtable.less" />
     <Content Include="Scripts\jtable\themes\metro\purple\jtable.less" />
     <Content Include="Scripts\jtable\themes\metro\pink\jtable.less" />

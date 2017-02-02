@@ -15,6 +15,8 @@ namespace continent.App_Start
             Mapper.CreateMap<countryViewModel, country>();
             Mapper.CreateMap<city, cityViewModel>();
             Mapper.CreateMap<cityViewModel, city>();
+            Mapper.CreateMap<area, areaViewModel>();
+            Mapper.CreateMap<areaViewModel, area>();
         }
     }
 }
