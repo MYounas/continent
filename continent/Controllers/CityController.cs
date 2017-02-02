@@ -39,7 +39,7 @@ namespace continent.Controllers
         {
             db.cities.Add(city);
             db.SaveChanges();
-            return Json(new { Result = "OK", Records = city });
+            return Json(new { Result = "OK", Record = city },JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

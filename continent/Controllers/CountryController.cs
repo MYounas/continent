@@ -42,7 +42,7 @@ namespace continent.Controllers
         {
             db.countries.Add(c);
             db.SaveChanges();
-            return Json(new { Result = "OK", Records = c }, JsonRequestBehavior.AllowGet);
+            return Json(new { Result = "OK", Record = c }, JsonRequestBehavior.AllowGet);
         }
 
 
