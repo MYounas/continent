@@ -13,6 +13,23 @@
                 actions: {
                     listAction: '/Area/getData',
                     createAction: '/Area/Create',
+                    //createAction:function (postData) {
+                    //    console.log("creating from custom function...");
+                    //    return $.Deferred(function ($dfd) {
+                    //        $.ajax({
+                    //            url: '/Area/Create',
+                    //            type: 'POST',
+                    //            dataType: 'json',
+                    //            data: postData,
+                    //            success: function (data) {
+                    //                $dfd.resolve(data);
+                    //            },
+                    //            error: function () {
+                    //                $dfd.reject();
+                    //            }
+                    //        });
+                    //    });
+                    //},
                     updateAction: '/Area/Edit',
                     deleteAction: '/Area/Delete',
                 },

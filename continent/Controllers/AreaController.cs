@@ -45,7 +45,7 @@ namespace continent.Controllers
         {
             db.areas.Add(a);
             db.SaveChanges();
-            return Json(new { Result = "OK", Records = a });
+            return Json(new { Result = "OK", Record = a },JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
