@@ -9,6 +9,8 @@ using AutoMapper;
 
 namespace continent.Controllers
 {
+    //[Authorize]
+    //[AllowAnonymous]
     public class CountryController : Controller
     {
         // GET: Country
@@ -34,6 +36,36 @@ namespace continent.Controllers
                 return Json(new { Result = "ERROR", Message = ex.Message });
             }
 
+        }
+
+        public ActionResult Graph()
+        {
+            return View();
+
+        }
+
+        public JsonResult graphData()
+        {
+            //var data = db.countries.ToList();
+
+            //var lstData = Mapper.Map<IEnumerable<country>, IEnumerable<countryViewModel>>(data);
+
+            var lstData=new List<faltoClass>(){
+                new faltoClass(){
+                    person="younas",
+                    rate=5
+                },
+                new faltoClass(){
+                    person="yousaf",
+                    rate=10
+                },
+                new faltoClass(){
+                    person="adnan",
+                    rate=15
+                }
+            };
+
+            return Json(lstData, JsonRequestBehavior.AllowGet);
         }
 
 

@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Graph";
+}
+
+<h2>Graph</h2>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>  
+
+<script>
+    google.load("visualization", "1", { packages: ["corechart"] });
+</script>
+
+<script>
+    $(function () {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            url: '@Url.Action("graphData")',
+            data: '{}',
+            success: function (chartsdata) {
+
+                // Callback that creates and populates a data table,    
+                // instantiates the pie chart, passes in the data and    
+                // draws it.    
+
+                var data = new google.visualization.DataTable();
+
+                data.addColumn('string', 'person');
+                data.addColumn('number', 'rate');
+
+                for (var i = 0; i < chartsdata.length; i++) {
+                    data.addRow([chartsdata[i].person, chartsdata[i].rate]);
+                }
+
+                // Instantiate and draw our chart, passing in some options    
+                var chart = new google.visualization.AreaChart(document.getElementById('chartdiv'));
+                //var chart = new google.visualization.ColumnChart(document.getElementById('chartdiv'));
+                //var chart = new google.visualization.PieChart(document.getElementById('chartdiv'));
+                //var chart = new google.visualization.ScatterChart(document.getElementById('chartdiv'));
+                //var chart = new google.visualization.ComboChart(document.getElementById('chartdiv'));
+                //var chart = new google.visualization.BarChart(document.getElementById('chartdiv'));
+
+                chart.draw(data,
+                  {
+                      title: "Show Google Chart in ASP.NET",
+                      position: "top",
+                      fontsize: "14px",
+                      chartArea: { width: '50%' },
+                  });
+            },
+            error: function () {
+                alert("Error loading data! Please try again.");
+            }
+        });
+    })  
+</script>
+
+
+<div id="chartdiv"></div>

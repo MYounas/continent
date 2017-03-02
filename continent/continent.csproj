@@ -193,6 +193,10 @@
     <Compile Include="Migrations\201701100451322_initial.Designer.cs">
       <DependentUpon>201701100451322_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702271214039_forAuthorizations.cs" />
+    <Compile Include="Migrations\201702271214039_forAuthorizations.Designer.cs">
+      <DependentUpon>201702271214039_forAuthorizations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\area.cs" />
@@ -203,6 +207,7 @@
     <Compile Include="Models\CountryCityViewModel.cs" />
     <Compile Include="Models\countryViewModel.cs" />
     <Compile Include="Models\DbcsContext.cs" />
+    <Compile Include="Models\faltoClass.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -266,6 +271,17 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <None Include="Properties\PublishProfiles\c57f6a8c-0ee0-4-231-b9ee - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\c57f6a8c-0ee0-4-231-b9ee - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\testyounas - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\testyounas - FTP %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\testyounas - FTP %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\testyounas - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\testyounas - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\testyounas - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\testyounas - Web Deploy %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\testyounas - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -459,6 +475,8 @@
     <Content Include="Scripts\jtable\themes\jtable_theme_base.less" />
     <Content Include="Scripts\jtable\themes\jqueryui\jtable_jqueryui.less" />
     <Content Include="Scripts\jtable\themes\basic\jtable_basic.less" />
+    <Content Include="Views\Country\Graph.cshtml" />
+    <Content Include="Scripts\jsapi" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -470,6 +488,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201701100451322_initial.resx">
       <DependentUpon>201701100451322_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702271214039_forAuthorizations.resx">
+      <DependentUpon>201702271214039_forAuthorizations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
